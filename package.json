@@ -1,0 +1,88 @@
+{
+  "name": "pathtotree",
+  "displayName": "PathToTree - Markdown Tasks",
+  "description": "Project tasks as markdown files. One file per task, frontmatter metadata, webview panel with cards grouped by status.",
+  "version": "0.2.0",
+  "publisher": "artisanweblab",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OleksandrWebLab/pathtotree-vs-code-plugin.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pathtotree.newTask",
+        "title": "PathToTree: New Task",
+        "icon": "$(add)"
+      },
+      {
+        "command": "pathtotree.refresh",
+        "title": "PathToTree: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "pathtotree.createTasksFolder",
+        "title": "PathToTree: Initialize for This Project"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "pathtotree.newTask",
+          "when": "view == pathtotree.tasks",
+          "group": "navigation@1"
+        },
+        {
+          "command": "pathtotree.refresh",
+          "when": "view == pathtotree.tasks",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pathtotree-sidebar",
+          "title": "PathToTree",
+          "icon": "media/icons/checklist.svg"
+        }
+      ]
+    },
+    "views": {
+      "pathtotree-sidebar": [
+        {
+          "type": "webview",
+          "id": "pathtotree.tasks",
+          "name": ""
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
