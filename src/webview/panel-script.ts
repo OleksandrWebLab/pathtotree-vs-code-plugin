@@ -3,6 +3,7 @@ export const PANEL_SCRIPT = `
     const vscode = acquireVsCodeApi();
 
     const STATUS_LABELS = {
+        'inbox': 'Inbox',
         'backlog': 'Backlog',
         'todo': 'To Do',
         'in-progress': 'In Progress',
@@ -10,7 +11,7 @@ export const PANEL_SCRIPT = `
         'done': 'Done',
         'archived': 'Archived',
     };
-    const STATUS_ORDER = ['backlog', 'todo', 'in-progress', 'review', 'done', 'archived'];
+    const STATUS_ORDER = ['inbox', 'backlog', 'todo', 'in-progress', 'review', 'done', 'archived'];
     const PRIORITIES = ['highest', 'high', 'medium', 'low', 'lowest'];
     const PRIORITY_RANK = { highest: 0, high: 1, medium: 2, low: 3, lowest: 4 };
     const COLLAPSED_BY_DEFAULT = new Set(['backlog', 'done', 'archived']);

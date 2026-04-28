@@ -2,7 +2,7 @@
   "name": "pathtotree",
   "displayName": "PathToTree - Markdown Tasks",
   "description": "Project tasks as markdown files. One file per task, frontmatter metadata, webview panel with cards grouped by status.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "publisher": "artisanweblab",
   "repository": {
     "type": "git",

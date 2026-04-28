@@ -1,12 +1,13 @@
 import * as vscode from 'vscode';
 
-export const STATUSES = ['backlog', 'todo', 'in-progress', 'review', 'done', 'archived'] as const;
+export const STATUSES = ['inbox', 'backlog', 'todo', 'in-progress', 'review', 'done', 'archived'] as const;
 export type TaskStatus = (typeof STATUSES)[number];
 
 export const PRIORITIES = ['highest', 'high', 'medium', 'low', 'lowest'] as const;
 export type TaskPriority = (typeof PRIORITIES)[number];
 
 export const STATUS_LABELS: Record<TaskStatus, string> = {
+    'inbox': 'Inbox',
     'backlog': 'Backlog',
     'todo': 'To Do',
     'in-progress': 'In Progress',

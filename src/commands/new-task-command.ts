@@ -28,7 +28,7 @@ export async function executeNewTask(store: TaskStore): Promise<void> {
 
     const data: Record<string, unknown> = {
         title: trimmedTitle,
-        status: 'backlog',
+        status: 'inbox',
         priority: 'medium',
         created: new Date(),
     };

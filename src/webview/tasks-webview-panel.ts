@@ -48,7 +48,7 @@ interface StateDto {
 }
 
 const COLLAPSED_SECTIONS_KEY = 'pathtotree.collapsedSections';
-const DEFAULT_COLLAPSED_SECTIONS: readonly string[] = ['backlog', 'done', 'archived'];
+const DEFAULT_COLLAPSED_SECTIONS: readonly string[] = ['backlog', 'done', 'archived', 'no-status'];
 
 export class TasksWebviewPanel implements vscode.WebviewViewProvider, vscode.Disposable {
     public static readonly VIEW_ID = 'pathtotree.tasks';
@@ -189,7 +189,7 @@ export class TasksWebviewPanel implements vscode.WebviewViewProvider, vscode.Dis
 
         const data: Record<string, unknown> = {
             title: trimmed,
-            status: status ?? 'backlog',
+            status: status ?? 'inbox',
             priority: 'medium',
             created: new Date(),
         };

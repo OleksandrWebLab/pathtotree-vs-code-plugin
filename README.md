@@ -114,19 +114,20 @@ Free-form markdown body: context, links, code snippets.
 | Field | Required | Notes |
 |-------|----------|-------|
 | `title` | required | Short title shown in the panel; falls back to the filename if missing |
-| `status` | required | One of the six values below; missing or invalid → "No Status" group |
+| `status` | required | One of the seven values below; missing or invalid → "No Status" group |
 | `priority` | optional | Defaults to `medium` |
 | `created` | required | ISO timestamp; set automatically by the plugin on creation |
 | `updated` | optional | ISO timestamp; touched only when the plugin edits the task itself, not on manual edits |
 
 Unknown fields (e.g. `tags`, `due`, custom IDs) are preserved as-is — the plugin reads what it understands and never strips fields it doesn't.
 
-### Workflow — six stages
+### Workflow — seven stages
 
 ```
-backlog  →  todo  →  in-progress  →  review  →  done  →  archived
+inbox  →  backlog  →  todo  →  in-progress  →  review  →  done  →  archived
 ```
 
+- `inbox` — entry point for everything new. Every task created by the plugin or by an AI agent lands here first. Review and promote manually
 - `backlog` — long-term pile of ideas. May contain hundreds of items
 - `todo` — pulled from backlog into the current iteration
 - `in-progress` — actively being worked on right now
@@ -134,7 +135,7 @@ backlog  →  todo  →  in-progress  →  review  →  done  →  archived
 - `done` — reviewed and accepted, kept visible until you run a recap
 - `archived` — closed, no longer relevant. Cancelled work also lives here, with a reason in the body
 
-`backlog`, `done` and `archived` are collapsed by default in the panel. The collapsed/expanded state of each section is remembered per workspace.
+`inbox` is always expanded so new arrivals are immediately visible. `backlog`, `done` and `archived` are collapsed by default. The collapsed/expanded state of each section is remembered per workspace.
 
 ### Priorities — five Jira-style levels
 
@@ -165,7 +166,7 @@ The search box at the top of the panel filters by title, summary and full body c
 
 ### Commands (Command Palette → `PathToTree: ...`)
 
-- `PathToTree: New Task` — prompt for a title, create a `backlog` task, open it in the editor with the cursor in the body
+- `PathToTree: New Task` — prompt for a title, create an `inbox` task, open it in the editor with the cursor in the body
 - `PathToTree: Refresh` — re-read all task files from disk (in case the file watcher missed something)
 - `PathToTree: Initialize for This Project` — same as the welcome button: create `tasks/`, `tasks/README.md`, and a starter task
 
