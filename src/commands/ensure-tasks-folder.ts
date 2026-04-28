@@ -31,6 +31,20 @@ export async function ensureTasksFolder(store: TaskStore): Promise<EnsureTasksFo
         initialized = true;
     }
 
+    const gitignoreUri = vscode.Uri.joinPath(tasksDir, '.gitignore');
+    if (!(await pathExists(gitignoreUri))) {
+        const gitignoreContent = [
+            '# Ignore all task files by default.',
+            '# Remove specific lines to track individual tasks in git.',
+            '*',
+            '!.gitignore',
+            '!README.md',
+            '',
+        ].join('\n');
+        await atomicWrite(gitignoreUri, gitignoreContent);
+        initialized = true;
+    }
+
     if (!alreadyExisted) {
         const welcomeUri = vscode.Uri.joinPath(tasksDir, INITIAL_TASK_FILENAME);
         if (!(await pathExists(welcomeUri))) {
