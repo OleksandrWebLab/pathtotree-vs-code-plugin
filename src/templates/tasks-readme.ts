@@ -64,19 +64,21 @@ Five Jira-style levels, ordered from most urgent to least:
 
 Within a section, tasks are sorted by priority first (highest at the top), then by creation date.
 
-## Minimal example
-
-\`\`\`markdown
----
-title: Add login screen
-status: inbox
-created: 2026-04-27T12:00:00.000Z
----
-\`\`\`
-
 ## Notes for AI agents
 
 If you are an AI assistant working in this repository:
+
+### Task body structure
+
+Break the task body into actionable checklist items so progress is trackable:
+
+\`\`\`markdown
+- [ ] Do this
+- [ ] Check that
+- [ ] Clarify something
+\`\`\`
+
+Each distinct action should be a separate checkbox. Add context, links, or code snippets after the checklist.
 
 ### Creating tasks
 
@@ -95,4 +97,23 @@ If you are an AI assistant working in this repository:
 - Move tasks through statuses in order: \`inbox\` -> \`backlog\` -> \`todo\` -> \`in-progress\` -> \`review\` -> \`done\` -> \`archived\`. Skipping stages is allowed only when the user explicitly says so.
 - Never write to \`done\` or \`archived\` directly without going through \`review\` unless the user explicitly tells you to skip review.
 - Cancelled work goes to \`archived\` with a short note in the body explaining why.
+
+### Closing a task (moving to \`done\` or \`archived\`)
+
+When a task is complete or cancelled, do two things before changing the status:
+
+1. **Mark each checklist item.** Check off completed items (\`- [x]\`). For skipped or cancelled items, leave them unchecked and append a short inline note, e.g. \`- [ ] Clarify X — skipped, no longer relevant\`.
+
+2. **Append a short completion summary** at the bottom of the body:
+
+\`\`\`markdown
+---
+Done: all items completed.
+
+<!-- partial example: -->
+Done: items 1-2 completed. Item 3 skipped — became irrelevant after the API change.
+Also done outside original scope: updated the migration, cleaned up the old helper.
+\`\`\`
+
+Keep the summary to 2-4 sentences. Its purpose is to give future context without opening git history.
 `;
