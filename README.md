@@ -1,3 +1,12 @@
+> [!IMPORTANT]
+> **This project has moved.**
+>
+> The plugin have been merged into a single extension — **Sonara**.
+>
+> 👉 New repository: **[github.com/ArtisanWebLab/sonara](https://github.com/ArtisanWebLab/sonara)**
+>
+> This repository is archived and will no longer receive updates, bug fixes, or new features. Please switch to Sonara for the latest version.
+
 # PathToTree — Markdown Tasks for VS Code
 
 Project tasks as markdown files committed alongside your code. One file per task, YAML frontmatter for metadata, a webview panel that renders them as cards grouped by status. The whole task list travels with the repo, so AI agents working in your project can read, create and update tasks the same way they touch any other file.
